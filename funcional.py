@@ -55,30 +55,36 @@ t1_start = process_time()
 dados = carregar_dados_arquivo("dados.csv") # UTILIZE QUALQUER CSV que se adeque com o problema.
 t1_stop = process_time()
 
+dados_copia = dados.copy()
+
 # Filtrar os dados com base na coluna "idade"
 t2_start = process_time()
-dados_filtrados = filtrar_dados(dados, coluna=1, valor="30")
+dados_filtrados = filtrar_dados(dados_copia, coluna=1, valor="30")
 t2_stop = process_time()
 print("Dados Filtrados:")
 print(dados_filtrados)
 
+dados_filtrados_copia = dados_filtrados.copy()
+
 # Mapear os dados na coluna "salario" com uma função de aumento
 t3_start = process_time()
-dados_mapeados = mapear_dados(dados_filtrados, coluna=2, funcao=lambda x: float(x) * 1.1)
+dados_mapeados = mapear_dados(dados_filtrados_copia, coluna=2, funcao=lambda x: float(x) * 1.1)
 t3_stop = process_time()
 print("Dados Mapeados:")
 print(dados_mapeados)
 
+dados_mapeados_copia = dados_mapeados.copy()
+
 # Reduzir os dados para obter a média dos salários
 t4_start = process_time()
-media_salarios = reduzir_dados(dados_mapeados, coluna=2, funcao=lambda x, y: x + y) / len(dados_mapeados)
+media_salarios = reduzir_dados(dados_mapeados_copia, coluna=2, funcao=lambda x, y: x + y) / len(dados_mapeados)
 t4_stop = process_time()
 print("Média dos Salários:")
 print(media_salarios)
 
 # Ordenar os dados pela coluna "nome"
 t5_start = process_time()
-dados_ordenados = ordenar_dados(dados_mapeados, coluna=0)
+dados_ordenados = ordenar_dados(dados_mapeados_copia, coluna=0)
 t5_stop = process_time()
 
 print("Dados Ordenados:")

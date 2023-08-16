@@ -60,9 +60,6 @@ t5_start = process_time()
 dados_ordenados = ordenar_dados(dados_mapeados, coluna=0)
 t5_stop = process_time()
 
-print("Dados Ordenados:")
-print(dados_ordenados)
-
 print("Tempo de leitura do arquivo: ", t1_stop - t1_start)
 print("Tempo de filtragem dos dados: ", t2_stop - t2_start)
 print("Tempo de mapeamento dos dados: ", t3_stop - t3_start)
